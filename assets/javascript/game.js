@@ -1,25 +1,119 @@
-//generates random number for user to guess (19-120)
-var numToGuess = Math.floor(Math.random() * 100)+20;
-console.log(numToGuess);
+$(document).ready(function () {
 
-//generates 4 random numbers to correspond with crystals (1-12)
-var crys1 = Math.floor(Math.random() * 12)+1;
-var crys2 = Math.floor(Math.random() * 12)+1;
-var crys3 = Math.floor(Math.random() * 12)+1;
-var crys4 = Math.floor(Math.random() * 12)+1;
+    //keep track of wins and losses
+    var winCount = 0;
+    var lossCount = 0;
 
-console.log(crys1);
-console.log(crys2);
-console.log(crys3);
-console.log(crys4);
+    $('#wins').append(" " + winCount);
+    $('#losses').append(" " + lossCount);
+    //generates random number for user to guess (19-120)
+    var numToGuess = Math.floor(Math.random() * 100) + 20;
+    $('#randomNum').append("<h1>" + numToGuess + "</h1>");
+    //generates 4 random numbers to correspond with crystals (1-12)
+    var crys1 = Math.floor(Math.random() * 12) + 1;
+    var crys2 = Math.floor(Math.random() * 12) + 1;
+    var crys3 = Math.floor(Math.random() * 12) + 1;
+    var crys4 = Math.floor(Math.random() * 12) + 1;
 
-//display random number
-$('#randomNum').html("<h1>" + numToGuess + "</h1>");
+    //keep track of user's score
+    var userScore = 0;
 
-//waits for user to click on crystals
-    //on click events
+    //functions resets all the variables
+    function reset() {
+        //display new random number
+        numToGuess = Math.floor(Math.random() * 100) + 20;
+        $('#randomNum').html("<h3>Number to Guess: </h3><h1>" + numToGuess + "</h1>");
+        //generates 4 new random numbers to correspond with crystals (1-12)
+        crys1 = Math.floor(Math.random() * 12) + 1;
+        crys2 = Math.floor(Math.random() * 12) + 1;
+        crys3 = Math.floor(Math.random() * 12) + 1;
+        crys4 = Math.floor(Math.random() * 12) + 1;
+        userScore = 0;
+        $('#totalScore').html("<h1>" + userScore + "</h1>");
+        $('#wins').html("<h4>Wins: " + winCount + "</h4>");
+        $('#losses').html("<h4>Losses: " + lossCount + "</h4>");
 
-//depending on which crystal the user clicks on, the random number is added to the user's score
-    //score is displayed after each click
+    };
 
-//if statement - if score = number, then you win, if score is above, you lose, if score is less than, loop back to top (or do nothing)
+    //waits for user to click on crystals
+    $('#amethyst').on("click", function () {
+        //depending on which crystal the user clicks on, the random number is added to the user's score
+        userScore = crys1 + userScore;
+        //score is displayed after each click
+        $('#totalScore').html("<h1>" + userScore + "</h1>");
+        if (userScore === numToGuess) {
+            alert("You win! Congratulations");
+            winCount++;
+            reset();
+        } else if (userScore >= numToGuess) {
+            alert("Oh no! You lose!");
+            lossCount++;
+            reset();
+        } else {
+            console.log(userScore);
+        }
+    });
+
+    $('#bismuth').on("click", function () {
+        userScore = crys2 + userScore;
+        $('#totalScore').html("<h1>" + userScore + "</h1>");
+        if (userScore === numToGuess) {
+            alert("You win! Congratulations");
+            winCount++;
+            reset();
+        } else if (userScore >= numToGuess) {
+            alert("Oh no! You lose!");
+            lossCount++;
+            reset();
+        } else {
+            console.log(userScore);
+        }
+    });
+
+    $('#diamond').on("click", function () {
+        userScore = crys3 + userScore;
+        $('#totalScore').html("<h1>" + userScore + "</h1>");
+        if (userScore === numToGuess) {
+            alert("You win! Congratulations");
+            winCount++;
+            reset();
+        } else if (userScore >= numToGuess) {
+            alert("Oh no! You lose!");
+            lossCount++;
+            reset();
+        } else {
+            console.log(userScore);
+        }
+    });
+
+    $('#titanium').on("click", function () {
+        userScore = crys4 + userScore;
+        $('#totalScore').html("<h1>" + userScore + "</h1>");
+        if (userScore === numToGuess) {
+            alert("You win! Congratulations");
+            winCount++;
+            reset();
+        } else if (userScore >= numToGuess) {
+            alert("Oh no! You lose!");
+            lossCount++;
+            reset();
+        } else {
+            console.log(userScore);
+        }
+    });
+
+// function check(){
+//     $('#totalScore').html("<h1>" + userScore + "</h1>");
+//         if (userScore === numToGuess) {
+//             alert("You win! Congratulations");
+//             winCount++;
+//             reset();
+//         } else if (userScore >= numToGuess) {
+//             alert("Oh no! You lose!");
+//             lossCount++;
+//             reset();
+//         } else {
+//             console.log(userScore);
+//         }
+//     };
+});
