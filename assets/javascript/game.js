@@ -29,10 +29,25 @@ $(document).ready(function () {
         crys3 = Math.floor(Math.random() * 12) + 1;
         crys4 = Math.floor(Math.random() * 12) + 1;
         userScore = 0;
-        $('#totalScore').html("<h1>" + userScore + "</h1>");
-        $('#wins').html("<h4>Wins: " + winCount + "</h4>");
-        $('#losses').html("<h4>Losses: " + lossCount + "</h4>");
+        $('#totalScore').html("<h3>Your total score is:</h3><h1>" + userScore + "</h1>");
+        $('#wins').html("<h3>Wins: " + winCount + "</h3>");
+        $('#losses').html("<h3>Losses: " + lossCount + "</h3>");
 
+    };
+
+    function check() {
+        $('#totalScore').html("<h3>Your total score is:</h3><h1>" + userScore + "</h1>");
+        if (userScore === numToGuess) {
+            alert("You win! Congratulations");
+            winCount++;
+            reset();
+        } else if (userScore >= numToGuess) {
+            alert("Oh no! You lose!");
+            lossCount++;
+            reset();
+        } else {
+            console.log(userScore);
+        }
     };
 
     //waits for user to click on crystals
@@ -40,80 +55,23 @@ $(document).ready(function () {
         //depending on which crystal the user clicks on, the random number is added to the user's score
         userScore = crys1 + userScore;
         //score is displayed after each click
-        $('#totalScore').html("<h1>" + userScore + "</h1>");
-        if (userScore === numToGuess) {
-            alert("You win! Congratulations");
-            winCount++;
-            reset();
-        } else if (userScore >= numToGuess) {
-            alert("Oh no! You lose!");
-            lossCount++;
-            reset();
-        } else {
-            console.log(userScore);
-        }
+        check();
     });
 
     $('#bismuth').on("click", function () {
         userScore = crys2 + userScore;
-        $('#totalScore').html("<h1>" + userScore + "</h1>");
-        if (userScore === numToGuess) {
-            alert("You win! Congratulations");
-            winCount++;
-            reset();
-        } else if (userScore >= numToGuess) {
-            alert("Oh no! You lose!");
-            lossCount++;
-            reset();
-        } else {
-            console.log(userScore);
-        }
+        check();
     });
 
     $('#diamond').on("click", function () {
         userScore = crys3 + userScore;
-        $('#totalScore').html("<h1>" + userScore + "</h1>");
-        if (userScore === numToGuess) {
-            alert("You win! Congratulations");
-            winCount++;
-            reset();
-        } else if (userScore >= numToGuess) {
-            alert("Oh no! You lose!");
-            lossCount++;
-            reset();
-        } else {
-            console.log(userScore);
-        }
+        check();
     });
 
     $('#titanium').on("click", function () {
         userScore = crys4 + userScore;
-        $('#totalScore').html("<h1>" + userScore + "</h1>");
-        if (userScore === numToGuess) {
-            alert("You win! Congratulations");
-            winCount++;
-            reset();
-        } else if (userScore >= numToGuess) {
-            alert("Oh no! You lose!");
-            lossCount++;
-            reset();
-        } else {
-            console.log(userScore);
-        }
+        check();
     });
 
-// function check(){
-//     $('#totalScore').html("<h1>" + userScore + "</h1>");
-//         if (userScore === numToGuess) {
-//             alert("You win! Congratulations");
-//             winCount++;
-//             reset();
-//         } else if (userScore >= numToGuess) {
-//             alert("Oh no! You lose!");
-//             lossCount++;
-//             reset();
-//         } else {
-//             console.log(userScore);
-//         }
-//     };
+
 });
