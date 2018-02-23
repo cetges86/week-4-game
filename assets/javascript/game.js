@@ -29,14 +29,14 @@ $(document).ready(function () {
         crys3 = Math.floor(Math.random() * 12) + 1;
         crys4 = Math.floor(Math.random() * 12) + 1;
         userScore = 0;
-        $('#totalScore').html("<h3>Your total score is:</h3><h1>" + userScore + "</h1>");
-        $('#wins').html("<h3>Wins: " + winCount + "</h3>");
-        $('#losses').html("<h3>Losses: " + lossCount + "</h3>");
+        $('#totalScore').html("<h3>Your Total Score:</h3><h1>" + userScore + "</h1>");
+        $('#wins').html("Wins: " + winCount);
+        $('#losses').html("Losses: " + lossCount + "");
 
     };
 
     function check() {
-        $('#totalScore').html("<h3>Your total score is:</h3><h1>" + userScore + "</h1>");
+        $('#totalScore').html("<h3>Your Total Score is:</h3><h1>" + userScore + "</h1>");
         if (userScore === numToGuess) {
             alert("You win! Congratulations");
             winCount++;

@@ -16,6 +16,15 @@ img {
     
 }
 
+h1 {
+    text-align: center;
+}
+
+#info {
+   width: 800px;
+   margin: 0 auto;
+}
+
 #scoreCount {
     max-width: 30%;
     display: inline-block;
