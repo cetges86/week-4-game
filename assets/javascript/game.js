@@ -32,19 +32,20 @@ $(document).ready(function () {
         $('#totalScore').html("<h3>Your Total Score:</h3><h1>" + userScore + "</h1>");
         $('#wins').html("Wins: " + winCount);
         $('#losses').html("Losses: " + lossCount + "");
+        $("#message").html("")
 
     };
 
     function check() {
         $('#totalScore').html("<h3>Your Total Score is:</h3><h1>" + userScore + "</h1>");
         if (userScore === numToGuess) {
-            alert("You win! Congratulations");
+            $("#message").html("<h1>YOU WIN!!</h1>");
             winCount++;
-            reset();
+            setTimeout(reset, 1000);
         } else if (userScore >= numToGuess) {
-            alert("Oh no! You lose!");
+            $("#message").html("<h1>YOU LOSE :(</h1>");
             lossCount++;
-            reset();
+            setTimeout(reset, 1000);
         } else {
             console.log(userScore);
         }
