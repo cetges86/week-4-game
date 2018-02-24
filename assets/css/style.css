@@ -8,7 +8,7 @@ img {
 
 #instructions {
     margin: 0 auto;
-    text-align: center;
+    text-align: justify;
     background-color: darkslategrey;
     border-radius: 20px;
     padding: 5px;
@@ -16,9 +16,16 @@ img {
     
 }
 
+
 h1 {
     text-align: center;
 }
+
+ul {
+    padding: 0% 10%;
+    line-height: 2em;
+}
+
 
 #info {
    width: 800px;
