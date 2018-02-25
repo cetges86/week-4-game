@@ -65,3 +65,13 @@ ul {
 .crystals {
     width:100%;
 }
+
+
+@media screen and (max-width:480px) {
+    #scoreCount, #randomNum, #totalScore {
+        width:100%;
+        display: block;
+        margin: 0px 43px 10px;
+        padding: 20px;
+    }
+}
